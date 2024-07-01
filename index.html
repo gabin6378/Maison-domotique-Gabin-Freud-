@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accès Protégé</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+            background: white;
+            padding: 2em;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+        }
+        input[type="password"], button {
+            padding: 0.5em;
+            margin: 0.5em;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 80%;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Veuillez Entrer le Mot de Passe</h1>
+        <input type="password" id="password" placeholder="Mot de passe">
+        <button onclick="checkPassword()">Entrer</button>
+        <p id="error" style="color: red;"></p>
+    </div>
+
+    <script>
+        function checkPassword() {
+            const enteredPassword = document.getElementById('password').value;
+            const correctPassword = 'juillet2024'; // Remplacez par le mot de passe désiré
+            if (enteredPassword === correctPassword) {
+                console.log("Mot de passe correct. Redirection en cours...");
+                localStorage.setItem('authenticated', 'true');
+                window.location.href = 'Ma_maison.html'; // Remplacez par l'URL de votre vrai site
+            } else {
+                console.log("Mot de passe incorrect.");
+                document.getElementById('error').innerText = 'Mot de passe incorrect. Veuillez réessayer.';
+            }
+        }
+    </script>
+</body>
+</html>
