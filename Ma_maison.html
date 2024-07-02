@@ -773,14 +773,10 @@
                     enableAppareil: enableAppareil
                 }).then(() => {
                     // Mettre à jour 'runningFunction'
-                    set(ref(db, runningFunctionPath), functionId)
-                    .then(() => {
+                  
                         alert("Programme enregistré avec succès !");
-                        closeModal('program5Modal');
-                    })
-                    .catch((error) => {
-                        alert("Erreur lors de la mise à jour de la fonction en cours : " + error.message);
-                    });
+                  
+                    
                 }).catch((error) => {
                     alert("Erreur lors de l'enregistrement du programme : " + error.message);
                 });
